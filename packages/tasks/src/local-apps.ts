@@ -63,6 +63,10 @@ function isGgufModel(model: ModelData) {
 	return model.tags.includes("gguf");
 }
 
+function isTransformersModel(model: ModelData) {
+	return model.tags.includes("transformers");
+}
+
 function isLlamaCppGgufModel(model: ModelData) {
 	return !!model.gguf?.context_length;
 }
@@ -124,6 +128,13 @@ const snippetLocalAI = (model: ModelData, filepath?: string): LocalAppSnippet[] 
 				"docker run -p 8080:8080 --name localai -v $PWD/models:/build/models localai/localai:latest-cpu"
 			),
 		},
+	];
+};
+
+const snippetVllm = (model: ModelData): string[] => {
+	return [
+		["# Install vLLM from pip", "pip install vllm"].join("\n"),
+		["# Load and run the model:", `vllm serve "${model.id}"`].join("\n"),
 	];
 };
 
@@ -215,6 +226,13 @@ export const LOCAL_APPS = {
 		macOSOnly: true,
 		displayOnModelPage: isLlamaCppGgufModel,
 		deeplink: (model) => new URL(`recursechat://new-hf-gguf-model?hf-model-id=${model.id}`),
+	},
+	vllm: {
+		prettyLabel: "vLLM",
+		docsUrl: "https://docs.vllm.ai",
+		mainTask: "text-generation",
+		displayOnModelPage: isTransformersModel,
+		snippet: snippetVllm,
 	},
 	drawthings: {
 		prettyLabel: "Draw Things",
