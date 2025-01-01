@@ -75,6 +75,15 @@ export const MODEL_LIBRARIES_UI_ELEMENTS = {
 		snippets: snippets.allennlp,
 		filter: true,
 	},
+	anemoi: {
+		prettyLabel: "AnemoI",
+		repoName: "AnemoI",
+		repoUrl: "https://github.com/ecmwf/anemoi-inference",
+		docsUrl: "https://anemoi-docs.readthedocs.io/en/latest/",
+		filter: false,
+		countDownloads: `path_extension:"ckpt"`,
+		snippets: snippets.anemoi,
+	},
 	asteroid: {
 		prettyLabel: "Asteroid",
 		repoName: "Asteroid",
@@ -113,6 +122,13 @@ export const MODEL_LIBRARIES_UI_ELEMENTS = {
 		repoUrl: "https://github.com/google-research/big_vision",
 		filter: false,
 		countDownloads: `path_extension:"npz"`,
+	},
+	birder: {
+		prettyLabel: "Birder",
+		repoName: "Birder",
+		repoUrl: "https://gitlab.com/birder/birder",
+		filter: false,
+		countDownloads: `path_extension:"pt"`,
 	},
 	birefnet: {
 		prettyLabel: "BiRefNet",
@@ -778,6 +794,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS = {
 		docsUrl: "https://huggingface.co/docs/hub/transformers-js",
 		snippets: snippets.transformersJS,
 		filter: true,
+	},
+	trellis: {
+		prettyLabel: "Trellis",
+		repoName: "Trellis",
+		repoUrl: "https://github.com/microsoft/TRELLIS",
+		countDownloads: `path_extension:"safetensors"`,
 	},
 	"unity-sentis": {
 		prettyLabel: "unity-sentis",
